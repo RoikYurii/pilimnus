@@ -1,0 +1,49 @@
+%input
+  background: none
+  border: none
+  border-bottom: 1px solid $light-color
+  height: 3.5em
+  box-sizing: border-box
+  &:focus
+    outline: none
+
+.contact
+  +container()
+  margin-top: 15em
+  background: $dark-color
+  box-shadow: $main-shadow
+  position: relative
+  justify-content: flex-end
+  margin-bottom: 10em
+  &__img
+    position: absolute
+    top: -9%
+    left: 4.43em
+    height: 118%
+  &__form
+    +col(6)
+  &-form
+    display: flex
+    flex-flow: column
+    padding: 4.185em 4.375em 3.625em 4.75em
+    &__title
+      @extend %section-title
+      width: 100%
+      margin-bottom: 1em
+    &__name
+      @extend %text
+      @extend %input
+      width: 36%
+      margin-right: 4%
+    &__contacts
+      @extend %text
+      @extend %input
+      width: 60%
+    &__message
+      @extend %text
+      @extend %input
+      resize: none
+      margin: 3.125em 0 4.435em 0
+      height: 7em
+    &__btn
+      @extend %btn

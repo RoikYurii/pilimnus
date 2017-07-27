@@ -1,0 +1,67 @@
+/***********************MEDIA QUERIES***********************/
+// $media-xlg: 1500px
+// $media-lg: 1239px
+// $media-md: 960px
+// $media-sm: 767px
+// $media-xs: 480px
+// $media-xxs: 320px
+
+/***********************COLORS & FONTS***********************/
+$text-font: "Raleway", Helvetica, sans-serif
+$title-font: "DroidSerif", Helvetica, sans-serif
+$main-color: #ad7835
+$light-color: #ffffff
+$dark-color: #373737
+
+$main-shadow: 0 0 80px 0 rgba(43, 43, 43, 0.3)
+
+/***********************EXTEND BLOCKS***********************/
+
+%title
+  font-family: $title-font
+  color: $main-color
+%section-title
+  @extend %title
+  font-size: 3.75em
+  position: relative
+  &::after
+    content: ""
+    position: absolute
+    left: 0
+    bottom: -0.31em
+    height: 3px
+    width: 1.5em
+    background: $main-color
+%text
+  font-family: $text-font
+  color: $light-color
+  font-size: 1em
+
+%btn
+  @extend %text
+  font-weight: 700
+  color: $main-color
+  text-transform: uppercase
+  width: 11.25em
+  height: 3.75em
+  border: 1px solid $main-color
+  background: none
+  cursor: pointer
+  position: relative
+  z-index: 1
+  &:hover
+    color: $dark-color
+    transition: .3s
+  &::after
+    content: ""
+    width: 100%
+    height: 0
+    position: absolute
+    bottom: 0
+    left: 0
+    background: $main-color
+    z-index: -1
+    transition: all .3s
+  &:hover::after
+    transition: all .3s
+    height: 100%

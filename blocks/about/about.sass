@@ -1,0 +1,42 @@
+.about
+  +container()
+  margin-top: 10em
+  background: $dark-color
+  box-shadow: $main-shadow
+  position: relative
+  &__container
+    position: relative
+  &__content
+    +col(6)
+  &-content
+    padding: 4.185em 4.375em 3.625em 4.75em
+    &__title
+      @extend %section-title
+    &__text
+      @extend %text
+      margin: 4.185em 0 3.185em 0
+      line-height: 1.75
+    &__btn
+      @extend %btn
+      transition: all .3s
+  &__img
+    position: absolute
+    top: -9%
+    right: 4.43em
+    height: 118%
+  &-description
+    width: 100%
+    height: 0
+    background: $dark-color
+    transition: all .5s
+    overflow: hidden
+    padding: 0 4.75em
+    &--active
+      height: 700px
+      transition: .5s
+    &__paragraph
+      @extend %text
+      margin: 2em 0
+      line-height: 1.75
+      &:first-of-type
+        margin-top: 4em

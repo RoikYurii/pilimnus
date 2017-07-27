@@ -1,0 +1,50 @@
+//*********************************************
+//		Assets
+//*********************************************
+@import "_base/reset"
+@import "_base/variables"
+@import "_base/fonts"
+@import "_base/grid"
+
+
+//*********************************************
+//		Blocks
+
+@import "header/header"
+@import "start/start"
+@import "about/about"
+@import "articles/articles"
+@import "gallery/gallery"
+@import "contact/contact"
+
+\:root
+  font-size: 10px
+  @media #{$xs}
+    font-size: 11px
+  @media #{$sm}
+    font-size: 12px
+  @media #{$md}
+    font-size: 14px
+  @media #{$lg}
+    font-size: 15px
+  @media #{$xlg}
+    font-size: 16px
+
+.wrapper
+  min-width: 320px
+  max-width: 1920px
+  background: #313131 url('../img/bg.jpg') no-repeat
+  background-size: cover
+  position: relative
+  z-index: 1
+  overflow: hidden
+  &::after
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: -1
+    opacity: 0.4
+    background: #505050

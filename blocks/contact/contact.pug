@@ -1,0 +1,13 @@
+mixin contact()
+  +b.SECTION.contact
+    +e.IMG.img(src="img/contact.jpg")
+    +e.DIV.form
+      +b.FORM.contact-form
+        +e.H3.title Contact
+        +e.DIV
+          +e.INPUT.name(placeholder="Your name")
+          +e.INPUT.contacts(placeholder="Your contacts")
+        +e.TEXTAREA.message(placeholder="Message")
+        +e.BUTTON.btn(type="submit") Send message
+        
+    

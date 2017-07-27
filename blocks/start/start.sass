@@ -1,0 +1,37 @@
+.start
+  +container(center)
+  align-items: center
+  min-height: 100vh
+  .s_block
+    margin-top: -5%
+    text-align: center
+    box-sizing: border-box
+    border: 0.625em solid $main-color
+    padding: 5.625em 9.75em 7.185em 9.75em
+    &__pre
+      @extend %text
+      font-size: 1.5em
+      font-weight: 700
+      text-transform: uppercase
+      position: relative
+      &::after
+        content: ""
+        position: absolute
+        bottom: -0.5em
+        left: 50%
+        width: 3.8em
+        margin-left: -1.9em
+        height: 3px
+        background: $light-color
+    &__title
+      @extend %title
+      font-size: 11.55em
+      color: $light-color
+      line-height: 0.85
+      margin: 0.19em 0 0.27em 0
+    &__text
+      @extend %text
+      font-size: 1.5em
+      font-weight: 700
+      color: #ac752f
+      text-transform: uppercase

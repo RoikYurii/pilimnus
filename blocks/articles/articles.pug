@@ -1,0 +1,19 @@
+mixin articles(articles)
+  +b.SECTION.articles
+    +e.H3.title Lastest articles
+    +e.DIV.content
+      +b.DIV.articles-content
+        -var i=1
+        each article in articles
+          +b.articles-content-item(id = article.name)
+            +e.DIV.img
+              +e.IMG(src="img/"+article.img)
+            +e.H3.title=article.title
+            +e.P.preview=article.preview
+            +e.BUTTON.more Read more
+          +b.articles-content-item-fulltext(id = article.name + "-fulltext")
+            //- +e.DIV.img
+            //-   +e.IMG(src="img/"+article.img)
+            //- +e.H3.title=article.title
+            //- +e.P.preview=article.preview
+            +e.BUTTON.more Hide

@@ -1,0 +1,5 @@
+mixin photos(photos)
+  -var i=8
+  each photo in photos
+    +e.DIV(class="gallery-photos__item gallery-photos__item-" +i++)
+      +e.IMG(src="img/"+photo.src alt="")

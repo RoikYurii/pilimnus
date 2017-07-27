@@ -1,0 +1,10 @@
+mixin gallery(photos)
+  +b.SECTION.gallery
+    +e.H3.title Gallery
+    +e.DIV.photos
+      +b.DIV.gallery-photos
+        -var i=1
+        each photo in photos
+          +e.DIV(class="item gallery-photos__item-" +i++)
+            +e.IMG(src="img/"+photo.src alt="")
+    +e.BUTTON.btn#gallery__btn Show more
