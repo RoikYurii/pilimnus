@@ -51,19 +51,6 @@
         @extend %text
         line-height: 1.75
         &--active
-      &-fulltext
-        position: absolute
-        top: 0
-        left: 0
-        background-color: $dark-color
-        width: 0
-        height: 5px
-        z-index: 5
-        overflow: hidden
-        &--active
-          animation: article-show 1s
-          width: 100%
-          height: 100%
       &__more
         @extend %text
         text-transform: uppercase
@@ -86,6 +73,56 @@
           top: 0
           right: -1em
           background: $main-color
+      &-fulltext
+        position: absolute
+        top: 0
+        left: 0
+        background: $dark-color
+        width: 0
+        max-height: 5px
+        overflow: hidden
+        transition: all .5s
+        display: none
+        z-index: 5
+        flex-flow: column
+        // padding: 5%
+        &__img
+          width: 30%
+          position: relative
+          top: 0
+          left: 35%
+          z-index: 1
+          margin-top: 5px
+          img
+            width: 100%
+          &::after
+            content: ""
+            position: absolute
+            top: -2em
+            left: -2em
+            width: 100%
+            height: 100%
+            z-index: -1
+            background: $dark-color
+        &__title
+          @extend %title
+          font-size: 1.25em
+          margin: 3.55em 0 2.25em 0
+          position: relative
+          &::after
+            content: ""
+            position: absolute
+            left: 0
+            bottom: -0.75em
+            width: 100%
+            height: 1px
+            background: $main-color
+        &--active
+          animation: article-show 1s
+          transition: all .3s
+        &__more
+          @extend %btn
+          align-self: center
 
     @keyframes article-show
       0%

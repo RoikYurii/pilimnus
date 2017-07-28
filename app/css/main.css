@@ -50,7 +50,7 @@ button:focus {
 /***********************MEDIA QUERIES***********************/
 /***********************COLORS & FONTS***********************/
 /***********************EXTEND BLOCKS***********************/
-.about-content__title, .articles__title, .gallery__title, .contact-form__title, .start .s_block__title, .articles-content-item__title {
+.about-content__title, .articles__title, .gallery__title, .contact-form__title, .start .s_block__title, .articles-content-item__title, .articles-content-item-fulltext__title {
   font-family: "DroidSerif", Helvetica, sans-serif;
   color: #ad7835; }
 
@@ -66,12 +66,12 @@ button:focus {
     width: 1.5em;
     background: #ad7835; }
 
-.about-content__btn, .gallery__btn, .contact-form__btn, .start .s_block__pre, .start .s_block__text, .about-content__text, .about-description__paragraph, .articles-content-item__preview, .articles-content-item__more, .contact-form__name, .contact-form__contacts, .contact-form__message {
+.about-content__btn, .articles-content-item-fulltext__more, .gallery__btn, .contact-form__btn, .start .s_block__pre, .start .s_block__text, .about-content__text, .about-description__paragraph, .articles-content-item__preview, .articles-content-item__more, .contact-form__name, .contact-form__contacts, .contact-form__message {
   font-family: "Raleway", Helvetica, sans-serif;
   color: #ffffff;
   font-size: 1em; }
 
-.about-content__btn, .gallery__btn, .contact-form__btn {
+.about-content__btn, .articles-content-item-fulltext__more, .gallery__btn, .contact-form__btn {
   font-weight: 700;
   color: #ad7835;
   text-transform: uppercase;
@@ -82,12 +82,12 @@ button:focus {
   cursor: pointer;
   position: relative;
   z-index: 1; }
-  .about-content__btn:hover, .gallery__btn:hover, .contact-form__btn:hover {
+  .about-content__btn:hover, .articles-content-item-fulltext__more:hover, .gallery__btn:hover, .contact-form__btn:hover {
     color: #373737;
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s; }
-  .about-content__btn::after, .gallery__btn::after, .contact-form__btn::after {
+  .about-content__btn::after, .articles-content-item-fulltext__more::after, .gallery__btn::after, .contact-form__btn::after {
     content: "";
     width: 100%;
     height: 0;
@@ -99,7 +99,7 @@ button:focus {
     -webkit-transition: all .3s;
     -o-transition: all .3s;
     transition: all .3s; }
-  .about-content__btn:hover::after, .gallery__btn:hover::after, .contact-form__btn:hover::after {
+  .about-content__btn:hover::after, .articles-content-item-fulltext__more:hover::after, .gallery__btn:hover::after, .contact-form__btn:hover::after {
     -webkit-transition: all .3s;
     -o-transition: all .3s;
     transition: all .3s;
@@ -222,6 +222,8 @@ button:focus {
     .about-content__text {
       margin: 4.185em 0 3.185em 0;
       line-height: 1.75; }
+      .about-content__text p:first-of-type {
+        margin-bottom: 2em; }
     .about-content__btn {
       -webkit-transition: all .3s;
       -o-transition: all .3s;
@@ -233,18 +235,19 @@ button:focus {
     height: 118%; }
   .about-description {
     width: 100%;
-    height: 0;
+    max-height: 0;
     background: #373737;
-    -webkit-transition: all .5s;
-    -o-transition: all .5s;
-    transition: all .5s;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s;
     overflow: hidden;
     padding: 0 4.75em; }
     .about-description--active {
-      height: 700px;
-      -webkit-transition: .5s;
-      -o-transition: .5s;
-      transition: .5s; }
+      -webkit-transition: all .8s;
+      -o-transition: all .8s;
+      transition: all .8s;
+      max-height: 2000px;
+      padding: 0 4.75em; }
     .about-description__paragraph {
       margin: 2em 0;
       line-height: 1.75; }
@@ -329,20 +332,6 @@ button:focus {
           background: #ad7835; }
       .articles-content-item__preview {
         line-height: 1.75; }
-      .articles-content-item-fulltext {
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: #373737;
-        width: 0;
-        height: 5px;
-        z-index: 5;
-        overflow: hidden; }
-        .articles-content-item-fulltext--active {
-          -webkit-animation: article-show 1s;
-                  animation: article-show 1s;
-          width: 100%;
-          height: 100%; }
       .articles-content-item__more {
         text-transform: uppercase;
         font-weight: 700;
@@ -364,6 +353,64 @@ button:focus {
           top: 0;
           right: -1em;
           background: #ad7835; }
+      .articles-content-item-fulltext {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #373737;
+        width: 0;
+        max-height: 5px;
+        overflow: hidden;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+        transition: all .5s;
+        display: none;
+        z-index: 5;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-flow: column;
+            -ms-flex-flow: column;
+                flex-flow: column; }
+        .articles-content-item-fulltext__img {
+          width: 30%;
+          position: relative;
+          top: 0;
+          left: 35%;
+          z-index: 1;
+          margin-top: 5px; }
+          .articles-content-item-fulltext__img img {
+            width: 100%; }
+          .articles-content-item-fulltext__img::after {
+            content: "";
+            position: absolute;
+            top: -2em;
+            left: -2em;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: #373737; }
+        .articles-content-item-fulltext__title {
+          font-size: 1.25em;
+          margin: 3.55em 0 2.25em 0;
+          position: relative; }
+          .articles-content-item-fulltext__title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -0.75em;
+            width: 100%;
+            height: 1px;
+            background: #ad7835; }
+        .articles-content-item-fulltext--active {
+          -webkit-animation: article-show 1s;
+                  animation: article-show 1s;
+          -webkit-transition: all .3s;
+          -o-transition: all .3s;
+          transition: all .3s; }
+        .articles-content-item-fulltext__more {
+          -webkit-align-self: center;
+              -ms-flex-item-align: center;
+                  align-self: center; }
 
 @-webkit-keyframes article-show {
   0% {

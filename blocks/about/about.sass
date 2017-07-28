@@ -6,6 +6,7 @@
   position: relative
   &__container
     position: relative
+
   &__content
     +col(6)
   &-content
@@ -16,6 +17,8 @@
       @extend %text
       margin: 4.185em 0 3.185em 0
       line-height: 1.75
+      p:first-of-type
+        margin-bottom: 2em
     &__btn
       @extend %btn
       transition: all .3s
@@ -26,14 +29,15 @@
     height: 118%
   &-description
     width: 100%
-    height: 0
+    max-height: 0
     background: $dark-color
-    transition: all .5s
+    transition: all .4s
     overflow: hidden
     padding: 0 4.75em
     &--active
-      height: 700px
-      transition: .5s
+      transition: all .8s
+      max-height: 2000px
+      padding: 0 4.75em
     &__paragraph
       @extend %text
       margin: 2em 0
